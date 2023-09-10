@@ -483,7 +483,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>c3d8c5ac</spirit:value>
+            <spirit:value>c8befd61</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -499,7 +499,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>d732fcf6</spirit:value>
+            <spirit:value>a500debb</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -515,7 +515,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>205b43ee</spirit:value>
+            <spirit:value>ef3cd308</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -531,7 +531,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>d79a27a5</spirit:value>
+            <spirit:value>e5d66144</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1184,7 +1184,7 @@
       <spirit:file>
         <spirit:name>hdl/vhdl/dma_grabber_dma_grabber.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:userFileType>CHECKSUM_d4a206ac</spirit:userFileType>
+        <spirit:userFileType>CHECKSUM_0fd3d421</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
     <spirit:fileSet>
@@ -1310,7 +1310,7 @@
       <xilinx:displayName>dma_grabber</xilinx:displayName>
       <xilinx:definitionSource>HLS</xilinx:definitionSource>
       <xilinx:coreRevision>0</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2023-09-04T04:09:30Z</xilinx:coreCreationDateTime>
+      <xilinx:coreCreationDateTime>2023-09-10T12:46:38Z</xilinx:coreCreationDateTime>
       <xilinx:sdxKernelAttributes>
         <xilinx:sdx_kernel>true</xilinx:sdx_kernel>
         <xilinx:sdx_kernel_type>hls</xilinx:sdx_kernel_type>
@@ -1320,7 +1320,7 @@
       <xilinx:xilinxVersion>2021.2</xilinx:xilinxVersion>
       <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="a63e757e"/>
       <xilinx:checksum xilinx:scope="memoryMaps" xilinx:value="9b52fc62"/>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="4f467654"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="9da6f7f4"/>
       <xilinx:checksum xilinx:scope="ports" xilinx:value="d9c12c28"/>
       <xilinx:checksum xilinx:scope="hdlParameters" xilinx:value="c36ad1dc"/>
       <xilinx:checksum xilinx:scope="parameters" xilinx:value="883ff21d"/>

@@ -7,7 +7,7 @@
 
 `timescale 1 ns / 1 ps 
 
-(* CORE_GENERATION_INFO="dma_grabber_dma_grabber,hls_ip_2021_2,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xc7z020-clg484-2,HLS_INPUT_CLOCK=8.000000,HLS_INPUT_ARCH=pipeline,HLS_SYN_CLOCK=5.809071,HLS_SYN_LAT=2,HLS_SYN_TPT=1,HLS_SYN_MEM=0,HLS_SYN_DSP=0,HLS_SYN_FF=208,HLS_SYN_LUT=280,HLS_VERSION=2021_2}" *)
+(* CORE_GENERATION_INFO="dma_grabber_dma_grabber,hls_ip_2021_2,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xc7z020-clg484-2,HLS_INPUT_CLOCK=8.000000,HLS_INPUT_ARCH=pipeline,HLS_SYN_CLOCK=5.809071,HLS_SYN_LAT=2,HLS_SYN_TPT=1,HLS_SYN_MEM=0,HLS_SYN_DSP=0,HLS_SYN_FF=216,HLS_SYN_LUT=306,HLS_VERSION=2021_2}" *)
 
 module dma_grabber_dma_grabber (
         ap_local_block,
@@ -114,36 +114,38 @@ wire    ap_CS_iter2_fsm_state3;
 wire   [0:0] p_start_V_load_load_fu_193_p1;
 wire   [0:0] tmp_nbreadreq_fu_114_p6;
 reg    os_TDATA_blk_n;
-reg   [0:0] p_start_V_load_reg_319;
-wire   [0:0] p_start_V_load_reg_319_pp0_iter0_reg;
-reg   [0:0] tmp_reg_332;
-reg   [0:0] p_start_V_load_reg_319_pp0_iter1_reg;
-reg   [0:0] tmp_reg_332_pp0_iter1_reg;
-reg   [0:0] icmp_ln1064_reg_336;
-reg   [0:0] icmp_ln1064_reg_336_pp0_iter1_reg;
+reg   [0:0] p_start_V_load_reg_327;
+wire   [0:0] p_start_V_load_reg_327_pp0_iter0_reg;
+reg   [0:0] tmp_reg_340;
+reg   [0:0] p_start_V_load_reg_327_pp0_iter1_reg;
+reg   [0:0] tmp_reg_340_pp0_iter1_reg;
+reg   [0:0] icmp_ln1064_reg_344;
+reg   [0:0] icmp_ln1064_reg_344_pp0_iter1_reg;
 reg    ap_predicate_op56_read_state1;
 reg    ap_block_state1_pp0_stage0_iter0;
-reg    ap_predicate_op67_write_state2;
-reg    ap_predicate_op68_write_state2;
+reg    ap_predicate_op69_write_state2;
+reg    ap_predicate_op70_write_state2;
 reg    ap_block_state2_pp0_stage0_iter1;
 reg    ap_block_state2_io;
-reg    ap_predicate_op71_write_state3;
 reg    ap_predicate_op73_write_state3;
+reg    ap_predicate_op75_write_state3;
 wire    regslice_both_os_V_data_V_U_apdone_blk;
 reg    ap_block_state3_pp0_stage0_iter2;
 reg    ap_block_state3_io;
 wire   [0:0] icmp_ln1064_fu_267_p2;
-reg   [31:0] tmp_data_V_reg_340;
-wire   [15:0] add_ln229_fu_283_p2;
-wire   [0:0] in_last_V_fu_301_p2;
-reg   [0:0] in_last_V_reg_350;
+reg   [31:0] tmp_data_V_reg_348;
+reg   [3:0] tmp_keep_V_reg_353;
+reg   [3:0] tmp_strb_V_reg_358;
+wire   [15:0] add_ln229_fu_291_p2;
+wire   [0:0] in_last_V_fu_309_p2;
+reg   [0:0] in_last_V_reg_368;
 wire   [15:0] ap_phi_reg_pp0_iter0_p_cnt_V_loc_0_reg_167;
 reg   [15:0] ap_phi_reg_pp0_iter1_p_cnt_V_loc_0_reg_167;
 wire   [0:0] or_ln35_fu_219_p2;
 reg   [15:0] ap_phi_mux_p_cnt_V_loc_2_phi_fu_182_p6;
 reg   [15:0] ap_phi_reg_pp0_iter1_p_cnt_V_loc_2_reg_178;
 wire   [15:0] ap_phi_reg_pp0_iter0_p_cnt_V_loc_2_reg_178;
-wire   [0:0] xor_ln946_fu_307_p2;
+wire   [0:0] xor_ln946_fu_315_p2;
 wire   [15:0] add_ln229_1_fu_255_p2;
 wire   [0:0] xor_ln35_fu_213_p2;
 reg   [0:0] ap_NS_iter0_fsm;
@@ -174,18 +176,20 @@ reg    os_TVALID_int_regslice;
 wire    os_TREADY_int_regslice;
 wire    regslice_both_os_V_data_V_U_vld_out;
 wire    regslice_both_os_V_keep_V_U_apdone_blk;
+reg   [3:0] os_TKEEP_int_regslice;
 wire    regslice_both_os_V_keep_V_U_ack_in_dummy;
 wire    regslice_both_os_V_keep_V_U_vld_out;
 wire    regslice_both_os_V_strb_V_U_apdone_blk;
+reg   [3:0] os_TSTRB_int_regslice;
 wire    regslice_both_os_V_strb_V_U_ack_in_dummy;
 wire    regslice_both_os_V_strb_V_U_vld_out;
 wire    regslice_both_os_V_last_V_U_apdone_blk;
 reg   [0:0] os_TLAST_int_regslice;
 wire    regslice_both_os_V_last_V_U_ack_in_dummy;
 wire    regslice_both_os_V_last_V_U_vld_out;
-reg    ap_condition_407;
-reg    ap_condition_427;
-reg    ap_condition_251;
+reg    ap_condition_426;
+reg    ap_condition_446;
+reg    ap_condition_261;
 wire    ap_ce_reg;
 
 // power-on initialization
@@ -306,7 +310,7 @@ dma_grabber_regslice_both #(
 regslice_both_os_V_keep_V_U(
     .ap_clk(ap_clk),
     .ap_rst(ap_rst_n_inv),
-    .data_in(4'd15),
+    .data_in(os_TKEEP_int_regslice),
     .vld_in(os_TVALID_int_regslice),
     .ack_in(regslice_both_os_V_keep_V_U_ack_in_dummy),
     .data_out(os_TKEEP),
@@ -320,7 +324,7 @@ dma_grabber_regslice_both #(
 regslice_both_os_V_strb_V_U(
     .ap_clk(ap_clk),
     .ap_rst(ap_rst_n_inv),
-    .data_in(4'd15),
+    .data_in(os_TSTRB_int_regslice),
     .vld_in(os_TVALID_int_regslice),
     .ack_in(regslice_both_os_V_strb_V_U_ack_in_dummy),
     .data_out(os_TSTRB),
@@ -371,9 +375,9 @@ always @ (posedge ap_clk) begin
     if (ap_rst_n_inv == 1'b1) begin
         p_cnt_V <= 16'd0;
     end else begin
-        if ((1'b1 == ap_condition_407)) begin
+        if ((1'b1 == ap_condition_426)) begin
             if (((tmp_nbreadreq_fu_114_p6 == 1'd1) & (p_start_V == 1'd1))) begin
-                p_cnt_V <= add_ln229_fu_283_p2;
+                p_cnt_V <= add_ln229_fu_291_p2;
             end else if (((p_start_V_load_load_fu_193_p1 == 1'd0) & (or_ln35_fu_219_p2 == 1'd0))) begin
                 p_cnt_V <= 16'd0;
             end
@@ -385,7 +389,7 @@ always @ (posedge ap_clk) begin
     if (ap_rst_n_inv == 1'b1) begin
         p_en_V <= 1'd0;
     end else begin
-        if ((~(((1'b1 == ap_CS_iter2_fsm_state3) & ((1'b1 == ap_block_state3_io) | (data_num_1_ack_in == 1'b0) | (regslice_both_os_V_data_V_U_apdone_blk == 1'b1) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op73_write_state3 == 1'b1)) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op71_write_state3 == 1'b1)))) | ((1'b1 == ap_CS_iter1_fsm_state2) & ((1'b1 == ap_block_state2_io) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op68_write_state2 == 1'b1)) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op67_write_state2 == 1'b1)))) | ((is_r_TVALID_int_regslice == 1'b0) & (ap_predicate_op56_read_state1 == 1'b1))) & (p_start_V_load_load_fu_193_p1 == 1'd0) & (1'b1 == ap_CS_iter0_fsm_state1))) begin
+        if ((~(((1'b1 == ap_CS_iter2_fsm_state3) & ((1'b1 == ap_block_state3_io) | (data_num_1_ack_in == 1'b0) | (regslice_both_os_V_data_V_U_apdone_blk == 1'b1) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op75_write_state3 == 1'b1)) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op73_write_state3 == 1'b1)))) | ((1'b1 == ap_CS_iter1_fsm_state2) & ((1'b1 == ap_block_state2_io) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op70_write_state2 == 1'b1)) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op69_write_state2 == 1'b1)))) | ((is_r_TVALID_int_regslice == 1'b0) & (ap_predicate_op56_read_state1 == 1'b1))) & (p_start_V_load_load_fu_193_p1 == 1'd0) & (1'b1 == ap_CS_iter0_fsm_state1))) begin
             p_en_V <= en;
         end
     end
@@ -395,7 +399,7 @@ always @ (posedge ap_clk) begin
     if (ap_rst_n_inv == 1'b1) begin
         p_size_V <= 16'd0;
     end else begin
-        if ((~(((1'b1 == ap_CS_iter2_fsm_state3) & ((1'b1 == ap_block_state3_io) | (data_num_1_ack_in == 1'b0) | (regslice_both_os_V_data_V_U_apdone_blk == 1'b1) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op73_write_state3 == 1'b1)) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op71_write_state3 == 1'b1)))) | ((1'b1 == ap_CS_iter1_fsm_state2) & ((1'b1 == ap_block_state2_io) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op68_write_state2 == 1'b1)) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op67_write_state2 == 1'b1)))) | ((is_r_TVALID_int_regslice == 1'b0) & (ap_predicate_op56_read_state1 == 1'b1))) & (p_start_V_load_load_fu_193_p1 == 1'd0) & (1'b1 == ap_CS_iter0_fsm_state1) & (or_ln35_fu_219_p2 == 1'd0))) begin
+        if ((~(((1'b1 == ap_CS_iter2_fsm_state3) & ((1'b1 == ap_block_state3_io) | (data_num_1_ack_in == 1'b0) | (regslice_both_os_V_data_V_U_apdone_blk == 1'b1) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op75_write_state3 == 1'b1)) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op73_write_state3 == 1'b1)))) | ((1'b1 == ap_CS_iter1_fsm_state2) & ((1'b1 == ap_block_state2_io) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op70_write_state2 == 1'b1)) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op69_write_state2 == 1'b1)))) | ((is_r_TVALID_int_regslice == 1'b0) & (ap_predicate_op56_read_state1 == 1'b1))) & (p_start_V_load_load_fu_193_p1 == 1'd0) & (1'b1 == ap_CS_iter0_fsm_state1) & (or_ln35_fu_219_p2 == 1'd0))) begin
             p_size_V <= size;
         end
     end
@@ -405,10 +409,10 @@ always @ (posedge ap_clk) begin
     if (ap_rst_n_inv == 1'b1) begin
         p_start_V <= 1'd0;
     end else begin
-        if ((1'b1 == ap_condition_407)) begin
+        if ((1'b1 == ap_condition_426)) begin
             if (((tmp_nbreadreq_fu_114_p6 == 1'd1) & (p_start_V == 1'd1))) begin
-                p_start_V <= xor_ln946_fu_307_p2;
-            end else if ((1'b1 == ap_condition_251)) begin
+                p_start_V <= xor_ln946_fu_315_p2;
+            end else if ((1'b1 == ap_condition_261)) begin
                 p_start_V <= 1'd0;
             end else if (((p_start_V_load_load_fu_193_p1 == 1'd0) & (or_ln35_fu_219_p2 == 1'd0))) begin
                 p_start_V <= 1'd1;
@@ -421,7 +425,7 @@ always @ (posedge ap_clk) begin
     if (ap_rst_n_inv == 1'b1) begin
         p_wait_time_V <= 16'd0;
     end else begin
-        if ((1'b1 == ap_condition_407)) begin
+        if ((1'b1 == ap_condition_426)) begin
             if (((tmp_nbreadreq_fu_114_p6 == 1'd1) & (p_start_V == 1'd1))) begin
                 p_wait_time_V <= 16'd0;
             end else if (((tmp_nbreadreq_fu_114_p6 == 1'd0) & (p_start_V == 1'd1))) begin
@@ -434,7 +438,7 @@ always @ (posedge ap_clk) begin
 end
 
 always @ (posedge ap_clk) begin
-    if ((1'b1 == ap_condition_407)) begin
+    if ((1'b1 == ap_condition_426)) begin
         if (((p_start_V_load_load_fu_193_p1 == 1'd0) & (or_ln35_fu_219_p2 == 1'd0))) begin
             ap_phi_reg_pp0_iter1_p_cnt_V_loc_0_reg_167 <= 16'd0;
         end else if (((p_start_V_load_load_fu_193_p1 == 1'd0) & (or_ln35_fu_219_p2 == 1'd1))) begin
@@ -446,11 +450,11 @@ always @ (posedge ap_clk) begin
 end
 
 always @ (posedge ap_clk) begin
-    if ((1'b1 == ap_condition_407)) begin
+    if ((1'b1 == ap_condition_426)) begin
         if (((tmp_nbreadreq_fu_114_p6 == 1'd0) & (p_start_V == 1'd1))) begin
             ap_phi_reg_pp0_iter1_p_cnt_V_loc_2_reg_178 <= p_cnt_V;
         end else if (((tmp_nbreadreq_fu_114_p6 == 1'd1) & (p_start_V == 1'd1))) begin
-            ap_phi_reg_pp0_iter1_p_cnt_V_loc_2_reg_178 <= add_ln229_fu_283_p2;
+            ap_phi_reg_pp0_iter1_p_cnt_V_loc_2_reg_178 <= add_ln229_fu_291_p2;
         end else if ((1'b1 == 1'b1)) begin
             ap_phi_reg_pp0_iter1_p_cnt_V_loc_2_reg_178 <= ap_phi_reg_pp0_iter0_p_cnt_V_loc_2_reg_178;
         end
@@ -464,35 +468,37 @@ always @ (posedge ap_clk) begin
 end
 
 always @ (posedge ap_clk) begin
-    if ((~(((1'b1 == ap_CS_iter2_fsm_state3) & ((1'b1 == ap_block_state3_io) | (data_num_1_ack_in == 1'b0) | (regslice_both_os_V_data_V_U_apdone_blk == 1'b1) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op73_write_state3 == 1'b1)) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op71_write_state3 == 1'b1)))) | ((1'b1 == ap_CS_iter1_fsm_state2) & ((1'b1 == ap_block_state2_io) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op68_write_state2 == 1'b1)) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op67_write_state2 == 1'b1)))) | ((is_r_TVALID_int_regslice == 1'b0) & (ap_predicate_op56_read_state1 == 1'b1))) & (tmp_nbreadreq_fu_114_p6 == 1'd0) & (p_start_V == 1'd1) & (1'b1 == ap_CS_iter0_fsm_state1))) begin
-        icmp_ln1064_reg_336 <= icmp_ln1064_fu_267_p2;
+    if ((~(((1'b1 == ap_CS_iter2_fsm_state3) & ((1'b1 == ap_block_state3_io) | (data_num_1_ack_in == 1'b0) | (regslice_both_os_V_data_V_U_apdone_blk == 1'b1) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op75_write_state3 == 1'b1)) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op73_write_state3 == 1'b1)))) | ((1'b1 == ap_CS_iter1_fsm_state2) & ((1'b1 == ap_block_state2_io) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op70_write_state2 == 1'b1)) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op69_write_state2 == 1'b1)))) | ((is_r_TVALID_int_regslice == 1'b0) & (ap_predicate_op56_read_state1 == 1'b1))) & (tmp_nbreadreq_fu_114_p6 == 1'd0) & (p_start_V == 1'd1) & (1'b1 == ap_CS_iter0_fsm_state1))) begin
+        icmp_ln1064_reg_344 <= icmp_ln1064_fu_267_p2;
     end
 end
 
 always @ (posedge ap_clk) begin
-    if ((~((1'b1 == ap_block_state2_io) | ((1'b1 == ap_CS_iter2_fsm_state3) & ((1'b1 == ap_block_state3_io) | (data_num_1_ack_in == 1'b0) | (regslice_both_os_V_data_V_U_apdone_blk == 1'b1) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op73_write_state3 == 1'b1)) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op71_write_state3 == 1'b1)))) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op68_write_state2 == 1'b1)) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op67_write_state2 == 1'b1))) & (1'b1 == ap_CS_iter1_fsm_state2))) begin
-        icmp_ln1064_reg_336_pp0_iter1_reg <= icmp_ln1064_reg_336;
-        p_start_V_load_reg_319_pp0_iter1_reg <= p_start_V_load_reg_319;
-        tmp_reg_332_pp0_iter1_reg <= tmp_reg_332;
+    if ((~((1'b1 == ap_block_state2_io) | ((1'b1 == ap_CS_iter2_fsm_state3) & ((1'b1 == ap_block_state3_io) | (data_num_1_ack_in == 1'b0) | (regslice_both_os_V_data_V_U_apdone_blk == 1'b1) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op75_write_state3 == 1'b1)) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op73_write_state3 == 1'b1)))) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op70_write_state2 == 1'b1)) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op69_write_state2 == 1'b1))) & (1'b1 == ap_CS_iter1_fsm_state2))) begin
+        icmp_ln1064_reg_344_pp0_iter1_reg <= icmp_ln1064_reg_344;
+        p_start_V_load_reg_327_pp0_iter1_reg <= p_start_V_load_reg_327;
+        tmp_reg_340_pp0_iter1_reg <= tmp_reg_340;
     end
 end
 
 always @ (posedge ap_clk) begin
-    if ((~(((1'b1 == ap_CS_iter2_fsm_state3) & ((1'b1 == ap_block_state3_io) | (data_num_1_ack_in == 1'b0) | (regslice_both_os_V_data_V_U_apdone_blk == 1'b1) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op73_write_state3 == 1'b1)) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op71_write_state3 == 1'b1)))) | ((1'b1 == ap_CS_iter1_fsm_state2) & ((1'b1 == ap_block_state2_io) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op68_write_state2 == 1'b1)) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op67_write_state2 == 1'b1)))) | ((is_r_TVALID_int_regslice == 1'b0) & (ap_predicate_op56_read_state1 == 1'b1))) & (tmp_nbreadreq_fu_114_p6 == 1'd1) & (p_start_V == 1'd1) & (1'b1 == ap_CS_iter0_fsm_state1))) begin
-        in_last_V_reg_350 <= in_last_V_fu_301_p2;
-        tmp_data_V_reg_340 <= is_r_TDATA_int_regslice;
+    if ((~(((1'b1 == ap_CS_iter2_fsm_state3) & ((1'b1 == ap_block_state3_io) | (data_num_1_ack_in == 1'b0) | (regslice_both_os_V_data_V_U_apdone_blk == 1'b1) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op75_write_state3 == 1'b1)) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op73_write_state3 == 1'b1)))) | ((1'b1 == ap_CS_iter1_fsm_state2) & ((1'b1 == ap_block_state2_io) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op70_write_state2 == 1'b1)) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op69_write_state2 == 1'b1)))) | ((is_r_TVALID_int_regslice == 1'b0) & (ap_predicate_op56_read_state1 == 1'b1))) & (tmp_nbreadreq_fu_114_p6 == 1'd1) & (p_start_V == 1'd1) & (1'b1 == ap_CS_iter0_fsm_state1))) begin
+        in_last_V_reg_368 <= in_last_V_fu_309_p2;
+        tmp_data_V_reg_348 <= is_r_TDATA_int_regslice;
+        tmp_keep_V_reg_353 <= is_r_TKEEP_int_regslice;
+        tmp_strb_V_reg_358 <= is_r_TSTRB_int_regslice;
     end
 end
 
 always @ (posedge ap_clk) begin
-    if ((~(((1'b1 == ap_CS_iter2_fsm_state3) & ((1'b1 == ap_block_state3_io) | (data_num_1_ack_in == 1'b0) | (regslice_both_os_V_data_V_U_apdone_blk == 1'b1) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op73_write_state3 == 1'b1)) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op71_write_state3 == 1'b1)))) | ((1'b1 == ap_CS_iter1_fsm_state2) & ((1'b1 == ap_block_state2_io) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op68_write_state2 == 1'b1)) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op67_write_state2 == 1'b1)))) | ((is_r_TVALID_int_regslice == 1'b0) & (ap_predicate_op56_read_state1 == 1'b1))) & (1'b1 == ap_CS_iter0_fsm_state1))) begin
-        p_start_V_load_reg_319 <= p_start_V;
+    if ((~(((1'b1 == ap_CS_iter2_fsm_state3) & ((1'b1 == ap_block_state3_io) | (data_num_1_ack_in == 1'b0) | (regslice_both_os_V_data_V_U_apdone_blk == 1'b1) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op75_write_state3 == 1'b1)) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op73_write_state3 == 1'b1)))) | ((1'b1 == ap_CS_iter1_fsm_state2) & ((1'b1 == ap_block_state2_io) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op70_write_state2 == 1'b1)) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op69_write_state2 == 1'b1)))) | ((is_r_TVALID_int_regslice == 1'b0) & (ap_predicate_op56_read_state1 == 1'b1))) & (1'b1 == ap_CS_iter0_fsm_state1))) begin
+        p_start_V_load_reg_327 <= p_start_V;
     end
 end
 
 always @ (posedge ap_clk) begin
-    if ((~(((1'b1 == ap_CS_iter2_fsm_state3) & ((1'b1 == ap_block_state3_io) | (data_num_1_ack_in == 1'b0) | (regslice_both_os_V_data_V_U_apdone_blk == 1'b1) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op73_write_state3 == 1'b1)) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op71_write_state3 == 1'b1)))) | ((1'b1 == ap_CS_iter1_fsm_state2) & ((1'b1 == ap_block_state2_io) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op68_write_state2 == 1'b1)) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op67_write_state2 == 1'b1)))) | ((is_r_TVALID_int_regslice == 1'b0) & (ap_predicate_op56_read_state1 == 1'b1))) & (p_start_V == 1'd1) & (1'b1 == ap_CS_iter0_fsm_state1))) begin
-        tmp_reg_332 <= tmp_nbreadreq_fu_114_p6;
+    if ((~(((1'b1 == ap_CS_iter2_fsm_state3) & ((1'b1 == ap_block_state3_io) | (data_num_1_ack_in == 1'b0) | (regslice_both_os_V_data_V_U_apdone_blk == 1'b1) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op75_write_state3 == 1'b1)) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op73_write_state3 == 1'b1)))) | ((1'b1 == ap_CS_iter1_fsm_state2) & ((1'b1 == ap_block_state2_io) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op70_write_state2 == 1'b1)) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op69_write_state2 == 1'b1)))) | ((is_r_TVALID_int_regslice == 1'b0) & (ap_predicate_op56_read_state1 == 1'b1))) & (p_start_V == 1'd1) & (1'b1 == ap_CS_iter0_fsm_state1))) begin
+        tmp_reg_340 <= tmp_nbreadreq_fu_114_p6;
     end
 end
 
@@ -505,7 +511,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_block_state2_io) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op68_write_state2 == 1'b1)) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op67_write_state2 == 1'b1)))) begin
+    if (((1'b1 == ap_block_state2_io) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op70_write_state2 == 1'b1)) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op69_write_state2 == 1'b1)))) begin
         ap_ST_iter1_fsm_state2_blk = 1'b1;
     end else begin
         ap_ST_iter1_fsm_state2_blk = 1'b0;
@@ -513,7 +519,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_block_state3_io) | (data_num_1_ack_in == 1'b0) | (regslice_both_os_V_data_V_U_apdone_blk == 1'b1) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op73_write_state3 == 1'b1)) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op71_write_state3 == 1'b1)))) begin
+    if (((1'b1 == ap_block_state3_io) | (data_num_1_ack_in == 1'b0) | (regslice_both_os_V_data_V_U_apdone_blk == 1'b1) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op75_write_state3 == 1'b1)) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op73_write_state3 == 1'b1)))) begin
         ap_ST_iter2_fsm_state3_blk = 1'b1;
     end else begin
         ap_ST_iter2_fsm_state3_blk = 1'b0;
@@ -521,7 +527,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((p_start_V_load_reg_319_pp0_iter0_reg == 1'd0)) begin
+    if ((p_start_V_load_reg_327_pp0_iter0_reg == 1'd0)) begin
         ap_phi_mux_p_cnt_V_loc_2_phi_fu_182_p6 = ap_phi_reg_pp0_iter1_p_cnt_V_loc_0_reg_167;
     end else begin
         ap_phi_mux_p_cnt_V_loc_2_phi_fu_182_p6 = ap_phi_reg_pp0_iter1_p_cnt_V_loc_2_reg_178;
@@ -537,7 +543,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((~((1'b1 == ap_block_state2_io) | ((1'b1 == ap_CS_iter2_fsm_state3) & ((1'b1 == ap_block_state3_io) | (data_num_1_ack_in == 1'b0) | (regslice_both_os_V_data_V_U_apdone_blk == 1'b1) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op73_write_state3 == 1'b1)) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op71_write_state3 == 1'b1)))) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op68_write_state2 == 1'b1)) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op67_write_state2 == 1'b1))) & (1'b1 == ap_CS_iter1_fsm_state2))) begin
+    if ((~((1'b1 == ap_block_state2_io) | ((1'b1 == ap_CS_iter2_fsm_state3) & ((1'b1 == ap_block_state3_io) | (data_num_1_ack_in == 1'b0) | (regslice_both_os_V_data_V_U_apdone_blk == 1'b1) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op75_write_state3 == 1'b1)) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op73_write_state3 == 1'b1)))) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op70_write_state2 == 1'b1)) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op69_write_state2 == 1'b1))) & (1'b1 == ap_CS_iter1_fsm_state2))) begin
         data_num_1_vld_in = 1'b1;
     end else begin
         data_num_1_vld_in = 1'b0;
@@ -553,7 +559,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((~(((1'b1 == ap_CS_iter2_fsm_state3) & ((1'b1 == ap_block_state3_io) | (data_num_1_ack_in == 1'b0) | (regslice_both_os_V_data_V_U_apdone_blk == 1'b1) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op73_write_state3 == 1'b1)) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op71_write_state3 == 1'b1)))) | ((1'b1 == ap_CS_iter1_fsm_state2) & ((1'b1 == ap_block_state2_io) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op68_write_state2 == 1'b1)) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op67_write_state2 == 1'b1)))) | ((is_r_TVALID_int_regslice == 1'b0) & (ap_predicate_op56_read_state1 == 1'b1))) & (1'b1 == ap_CS_iter0_fsm_state1) & (ap_predicate_op56_read_state1 == 1'b1))) begin
+    if ((~(((1'b1 == ap_CS_iter2_fsm_state3) & ((1'b1 == ap_block_state3_io) | (data_num_1_ack_in == 1'b0) | (regslice_both_os_V_data_V_U_apdone_blk == 1'b1) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op75_write_state3 == 1'b1)) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op73_write_state3 == 1'b1)))) | ((1'b1 == ap_CS_iter1_fsm_state2) & ((1'b1 == ap_block_state2_io) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op70_write_state2 == 1'b1)) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op69_write_state2 == 1'b1)))) | ((is_r_TVALID_int_regslice == 1'b0) & (ap_predicate_op56_read_state1 == 1'b1))) & (1'b1 == ap_CS_iter0_fsm_state1) & (ap_predicate_op56_read_state1 == 1'b1))) begin
         is_r_TREADY_int_regslice = 1'b1;
     end else begin
         is_r_TREADY_int_regslice = 1'b0;
@@ -561,7 +567,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((((1'b1 == ap_CS_iter2_fsm_state3) & (icmp_ln1064_reg_336_pp0_iter1_reg == 1'd1) & (tmp_reg_332_pp0_iter1_reg == 1'd0) & (p_start_V_load_reg_319_pp0_iter1_reg == 1'd1)) | ((1'b1 == ap_CS_iter2_fsm_state3) & (tmp_reg_332_pp0_iter1_reg == 1'd1) & (p_start_V_load_reg_319_pp0_iter1_reg == 1'd1)) | ((p_start_V_load_reg_319 == 1'd1) & (1'b1 == ap_CS_iter1_fsm_state2) & (icmp_ln1064_reg_336 == 1'd1) & (tmp_reg_332 == 1'd0)) | ((p_start_V_load_reg_319 == 1'd1) & (1'b1 == ap_CS_iter1_fsm_state2) & (tmp_reg_332 == 1'd1)))) begin
+    if ((((1'b1 == ap_CS_iter2_fsm_state3) & (icmp_ln1064_reg_344_pp0_iter1_reg == 1'd1) & (tmp_reg_340_pp0_iter1_reg == 1'd0) & (p_start_V_load_reg_327_pp0_iter1_reg == 1'd1)) | ((1'b1 == ap_CS_iter2_fsm_state3) & (tmp_reg_340_pp0_iter1_reg == 1'd1) & (p_start_V_load_reg_327_pp0_iter1_reg == 1'd1)) | ((p_start_V_load_reg_327 == 1'd1) & (1'b1 == ap_CS_iter1_fsm_state2) & (icmp_ln1064_reg_344 == 1'd1) & (tmp_reg_340 == 1'd0)) | ((p_start_V_load_reg_327 == 1'd1) & (1'b1 == ap_CS_iter1_fsm_state2) & (tmp_reg_340 == 1'd1)))) begin
         os_TDATA_blk_n = os_TREADY_int_regslice;
     end else begin
         os_TDATA_blk_n = 1'b1;
@@ -569,10 +575,10 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_condition_427)) begin
-        if ((ap_predicate_op68_write_state2 == 1'b1)) begin
-            os_TDATA_int_regslice = tmp_data_V_reg_340;
-        end else if ((ap_predicate_op67_write_state2 == 1'b1)) begin
+    if ((1'b1 == ap_condition_446)) begin
+        if ((ap_predicate_op70_write_state2 == 1'b1)) begin
+            os_TDATA_int_regslice = tmp_data_V_reg_348;
+        end else if ((ap_predicate_op69_write_state2 == 1'b1)) begin
             os_TDATA_int_regslice = 32'd0;
         end else begin
             os_TDATA_int_regslice = 'bx;
@@ -583,10 +589,24 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_condition_427)) begin
-        if ((ap_predicate_op68_write_state2 == 1'b1)) begin
-            os_TLAST_int_regslice = in_last_V_reg_350;
-        end else if ((ap_predicate_op67_write_state2 == 1'b1)) begin
+    if ((1'b1 == ap_condition_446)) begin
+        if ((ap_predicate_op70_write_state2 == 1'b1)) begin
+            os_TKEEP_int_regslice = tmp_keep_V_reg_353;
+        end else if ((ap_predicate_op69_write_state2 == 1'b1)) begin
+            os_TKEEP_int_regslice = 4'd15;
+        end else begin
+            os_TKEEP_int_regslice = 'bx;
+        end
+    end else begin
+        os_TKEEP_int_regslice = 'bx;
+    end
+end
+
+always @ (*) begin
+    if ((1'b1 == ap_condition_446)) begin
+        if ((ap_predicate_op70_write_state2 == 1'b1)) begin
+            os_TLAST_int_regslice = in_last_V_reg_368;
+        end else if ((ap_predicate_op69_write_state2 == 1'b1)) begin
             os_TLAST_int_regslice = 1'd1;
         end else begin
             os_TLAST_int_regslice = 'bx;
@@ -597,7 +617,21 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((~((1'b1 == ap_block_state2_io) | ((1'b1 == ap_CS_iter2_fsm_state3) & ((1'b1 == ap_block_state3_io) | (data_num_1_ack_in == 1'b0) | (regslice_both_os_V_data_V_U_apdone_blk == 1'b1) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op73_write_state3 == 1'b1)) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op71_write_state3 == 1'b1)))) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op68_write_state2 == 1'b1)) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op67_write_state2 == 1'b1))) & (1'b1 == ap_CS_iter1_fsm_state2) & (ap_predicate_op68_write_state2 == 1'b1)) | (~((1'b1 == ap_block_state2_io) | ((1'b1 == ap_CS_iter2_fsm_state3) & ((1'b1 == ap_block_state3_io) | (data_num_1_ack_in == 1'b0) | (regslice_both_os_V_data_V_U_apdone_blk == 1'b1) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op73_write_state3 == 1'b1)) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op71_write_state3 == 1'b1)))) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op68_write_state2 == 1'b1)) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op67_write_state2 == 1'b1))) & (1'b1 == ap_CS_iter1_fsm_state2) & (ap_predicate_op67_write_state2 == 1'b1)))) begin
+    if ((1'b1 == ap_condition_446)) begin
+        if ((ap_predicate_op70_write_state2 == 1'b1)) begin
+            os_TSTRB_int_regslice = tmp_strb_V_reg_358;
+        end else if ((ap_predicate_op69_write_state2 == 1'b1)) begin
+            os_TSTRB_int_regslice = 4'd15;
+        end else begin
+            os_TSTRB_int_regslice = 'bx;
+        end
+    end else begin
+        os_TSTRB_int_regslice = 'bx;
+    end
+end
+
+always @ (*) begin
+    if (((~((1'b1 == ap_block_state2_io) | ((1'b1 == ap_CS_iter2_fsm_state3) & ((1'b1 == ap_block_state3_io) | (data_num_1_ack_in == 1'b0) | (regslice_both_os_V_data_V_U_apdone_blk == 1'b1) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op75_write_state3 == 1'b1)) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op73_write_state3 == 1'b1)))) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op70_write_state2 == 1'b1)) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op69_write_state2 == 1'b1))) & (1'b1 == ap_CS_iter1_fsm_state2) & (ap_predicate_op70_write_state2 == 1'b1)) | (~((1'b1 == ap_block_state2_io) | ((1'b1 == ap_CS_iter2_fsm_state3) & ((1'b1 == ap_block_state3_io) | (data_num_1_ack_in == 1'b0) | (regslice_both_os_V_data_V_U_apdone_blk == 1'b1) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op75_write_state3 == 1'b1)) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op73_write_state3 == 1'b1)))) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op70_write_state2 == 1'b1)) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op69_write_state2 == 1'b1))) & (1'b1 == ap_CS_iter1_fsm_state2) & (ap_predicate_op69_write_state2 == 1'b1)))) begin
         os_TVALID_int_regslice = 1'b1;
     end else begin
         os_TVALID_int_regslice = 1'b0;
@@ -618,16 +652,16 @@ end
 always @ (*) begin
     case (ap_CS_iter1_fsm)
         ap_ST_iter1_fsm_state2 : begin
-            if ((~((1'b1 == ap_block_state2_io) | ((1'b1 == ap_CS_iter2_fsm_state3) & ((1'b1 == ap_block_state3_io) | (data_num_1_ack_in == 1'b0) | (regslice_both_os_V_data_V_U_apdone_blk == 1'b1) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op73_write_state3 == 1'b1)) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op71_write_state3 == 1'b1)))) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op68_write_state2 == 1'b1)) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op67_write_state2 == 1'b1))) & ~((is_r_TVALID_int_regslice == 1'b0) & (ap_predicate_op56_read_state1 == 1'b1)) & (1'b1 == ap_CS_iter0_fsm_state1))) begin
+            if ((~((1'b1 == ap_block_state2_io) | ((1'b1 == ap_CS_iter2_fsm_state3) & ((1'b1 == ap_block_state3_io) | (data_num_1_ack_in == 1'b0) | (regslice_both_os_V_data_V_U_apdone_blk == 1'b1) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op75_write_state3 == 1'b1)) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op73_write_state3 == 1'b1)))) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op70_write_state2 == 1'b1)) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op69_write_state2 == 1'b1))) & ~((is_r_TVALID_int_regslice == 1'b0) & (ap_predicate_op56_read_state1 == 1'b1)) & (1'b1 == ap_CS_iter0_fsm_state1))) begin
                 ap_NS_iter1_fsm = ap_ST_iter1_fsm_state2;
-            end else if ((~((1'b1 == ap_block_state2_io) | ((1'b1 == ap_CS_iter2_fsm_state3) & ((1'b1 == ap_block_state3_io) | (data_num_1_ack_in == 1'b0) | (regslice_both_os_V_data_V_U_apdone_blk == 1'b1) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op73_write_state3 == 1'b1)) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op71_write_state3 == 1'b1)))) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op68_write_state2 == 1'b1)) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op67_write_state2 == 1'b1))) & ((1'b0 == ap_CS_iter0_fsm_state1) | ((1'b1 == ap_CS_iter0_fsm_state1) & (is_r_TVALID_int_regslice == 1'b0) & (ap_predicate_op56_read_state1 == 1'b1))))) begin
+            end else if ((~((1'b1 == ap_block_state2_io) | ((1'b1 == ap_CS_iter2_fsm_state3) & ((1'b1 == ap_block_state3_io) | (data_num_1_ack_in == 1'b0) | (regslice_both_os_V_data_V_U_apdone_blk == 1'b1) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op75_write_state3 == 1'b1)) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op73_write_state3 == 1'b1)))) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op70_write_state2 == 1'b1)) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op69_write_state2 == 1'b1))) & ((1'b0 == ap_CS_iter0_fsm_state1) | ((1'b1 == ap_CS_iter0_fsm_state1) & (is_r_TVALID_int_regslice == 1'b0) & (ap_predicate_op56_read_state1 == 1'b1))))) begin
                 ap_NS_iter1_fsm = ap_ST_iter1_fsm_state0;
             end else begin
                 ap_NS_iter1_fsm = ap_ST_iter1_fsm_state2;
             end
         end
         ap_ST_iter1_fsm_state0 : begin
-            if ((~(((1'b1 == ap_CS_iter2_fsm_state3) & ((1'b1 == ap_block_state3_io) | (data_num_1_ack_in == 1'b0) | (regslice_both_os_V_data_V_U_apdone_blk == 1'b1) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op73_write_state3 == 1'b1)) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op71_write_state3 == 1'b1)))) | ((1'b1 == ap_CS_iter1_fsm_state2) & ((1'b1 == ap_block_state2_io) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op68_write_state2 == 1'b1)) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op67_write_state2 == 1'b1)))) | ((is_r_TVALID_int_regslice == 1'b0) & (ap_predicate_op56_read_state1 == 1'b1))) & (1'b1 == ap_CS_iter0_fsm_state1))) begin
+            if ((~(((1'b1 == ap_CS_iter2_fsm_state3) & ((1'b1 == ap_block_state3_io) | (data_num_1_ack_in == 1'b0) | (regslice_both_os_V_data_V_U_apdone_blk == 1'b1) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op75_write_state3 == 1'b1)) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op73_write_state3 == 1'b1)))) | ((1'b1 == ap_CS_iter1_fsm_state2) & ((1'b1 == ap_block_state2_io) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op70_write_state2 == 1'b1)) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op69_write_state2 == 1'b1)))) | ((is_r_TVALID_int_regslice == 1'b0) & (ap_predicate_op56_read_state1 == 1'b1))) & (1'b1 == ap_CS_iter0_fsm_state1))) begin
                 ap_NS_iter1_fsm = ap_ST_iter1_fsm_state2;
             end else begin
                 ap_NS_iter1_fsm = ap_ST_iter1_fsm_state0;
@@ -642,16 +676,16 @@ end
 always @ (*) begin
     case (ap_CS_iter2_fsm)
         ap_ST_iter2_fsm_state3 : begin
-            if ((~((1'b1 == ap_block_state2_io) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op68_write_state2 == 1'b1)) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op67_write_state2 == 1'b1))) & ~((1'b1 == ap_block_state3_io) | (data_num_1_ack_in == 1'b0) | (regslice_both_os_V_data_V_U_apdone_blk == 1'b1) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op73_write_state3 == 1'b1)) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op71_write_state3 == 1'b1))) & (1'b1 == ap_CS_iter1_fsm_state2))) begin
+            if ((~((1'b1 == ap_block_state2_io) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op70_write_state2 == 1'b1)) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op69_write_state2 == 1'b1))) & ~((1'b1 == ap_block_state3_io) | (data_num_1_ack_in == 1'b0) | (regslice_both_os_V_data_V_U_apdone_blk == 1'b1) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op75_write_state3 == 1'b1)) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op73_write_state3 == 1'b1))) & (1'b1 == ap_CS_iter1_fsm_state2))) begin
                 ap_NS_iter2_fsm = ap_ST_iter2_fsm_state3;
-            end else if ((~((1'b1 == ap_block_state3_io) | (data_num_1_ack_in == 1'b0) | (regslice_both_os_V_data_V_U_apdone_blk == 1'b1) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op73_write_state3 == 1'b1)) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op71_write_state3 == 1'b1))) & ((1'b0 == ap_CS_iter1_fsm_state2) | ((1'b1 == ap_CS_iter1_fsm_state2) & ((1'b1 == ap_block_state2_io) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op68_write_state2 == 1'b1)) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op67_write_state2 == 1'b1))))))) begin
+            end else if ((~((1'b1 == ap_block_state3_io) | (data_num_1_ack_in == 1'b0) | (regslice_both_os_V_data_V_U_apdone_blk == 1'b1) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op75_write_state3 == 1'b1)) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op73_write_state3 == 1'b1))) & ((1'b0 == ap_CS_iter1_fsm_state2) | ((1'b1 == ap_CS_iter1_fsm_state2) & ((1'b1 == ap_block_state2_io) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op70_write_state2 == 1'b1)) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op69_write_state2 == 1'b1))))))) begin
                 ap_NS_iter2_fsm = ap_ST_iter2_fsm_state0;
             end else begin
                 ap_NS_iter2_fsm = ap_ST_iter2_fsm_state3;
             end
         end
         ap_ST_iter2_fsm_state0 : begin
-            if ((~((1'b1 == ap_block_state2_io) | ((1'b1 == ap_CS_iter2_fsm_state3) & ((1'b1 == ap_block_state3_io) | (data_num_1_ack_in == 1'b0) | (regslice_both_os_V_data_V_U_apdone_blk == 1'b1) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op73_write_state3 == 1'b1)) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op71_write_state3 == 1'b1)))) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op68_write_state2 == 1'b1)) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op67_write_state2 == 1'b1))) & (1'b1 == ap_CS_iter1_fsm_state2))) begin
+            if ((~((1'b1 == ap_block_state2_io) | ((1'b1 == ap_CS_iter2_fsm_state3) & ((1'b1 == ap_block_state3_io) | (data_num_1_ack_in == 1'b0) | (regslice_both_os_V_data_V_U_apdone_blk == 1'b1) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op75_write_state3 == 1'b1)) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op73_write_state3 == 1'b1)))) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op70_write_state2 == 1'b1)) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op69_write_state2 == 1'b1))) & (1'b1 == ap_CS_iter1_fsm_state2))) begin
                 ap_NS_iter2_fsm = ap_ST_iter2_fsm_state3;
             end else begin
                 ap_NS_iter2_fsm = ap_ST_iter2_fsm_state0;
@@ -665,7 +699,7 @@ end
 
 assign add_ln229_1_fu_255_p2 = (p_wait_time_V + 16'd1);
 
-assign add_ln229_fu_283_p2 = (p_cnt_V + 16'd1);
+assign add_ln229_fu_291_p2 = (p_cnt_V + 16'd1);
 
 assign ap_CS_iter0_fsm_state1 = ap_CS_iter0_fsm[32'd0];
 
@@ -678,31 +712,31 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    ap_block_state2_io = (((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op68_write_state2 == 1'b1)) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op67_write_state2 == 1'b1)));
+    ap_block_state2_io = (((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op70_write_state2 == 1'b1)) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op69_write_state2 == 1'b1)));
 end
 
 always @ (*) begin
-    ap_block_state2_pp0_stage0_iter1 = (((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op68_write_state2 == 1'b1)) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op67_write_state2 == 1'b1)));
+    ap_block_state2_pp0_stage0_iter1 = (((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op70_write_state2 == 1'b1)) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op69_write_state2 == 1'b1)));
 end
 
 always @ (*) begin
-    ap_block_state3_io = (((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op73_write_state3 == 1'b1)) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op71_write_state3 == 1'b1)));
+    ap_block_state3_io = (((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op75_write_state3 == 1'b1)) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op73_write_state3 == 1'b1)));
 end
 
 always @ (*) begin
-    ap_block_state3_pp0_stage0_iter2 = ((data_num_1_ack_in == 1'b0) | (regslice_both_os_V_data_V_U_apdone_blk == 1'b1) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op73_write_state3 == 1'b1)) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op71_write_state3 == 1'b1)));
+    ap_block_state3_pp0_stage0_iter2 = ((data_num_1_ack_in == 1'b0) | (regslice_both_os_V_data_V_U_apdone_blk == 1'b1) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op75_write_state3 == 1'b1)) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op73_write_state3 == 1'b1)));
 end
 
 always @ (*) begin
-    ap_condition_251 = ((tmp_nbreadreq_fu_114_p6 == 1'd0) & (p_start_V == 1'd1) & (icmp_ln1064_fu_267_p2 == 1'd1));
+    ap_condition_261 = ((tmp_nbreadreq_fu_114_p6 == 1'd0) & (p_start_V == 1'd1) & (icmp_ln1064_fu_267_p2 == 1'd1));
 end
 
 always @ (*) begin
-    ap_condition_407 = (~(((1'b1 == ap_CS_iter2_fsm_state3) & ((1'b1 == ap_block_state3_io) | (data_num_1_ack_in == 1'b0) | (regslice_both_os_V_data_V_U_apdone_blk == 1'b1) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op73_write_state3 == 1'b1)) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op71_write_state3 == 1'b1)))) | ((1'b1 == ap_CS_iter1_fsm_state2) & ((1'b1 == ap_block_state2_io) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op68_write_state2 == 1'b1)) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op67_write_state2 == 1'b1)))) | ((is_r_TVALID_int_regslice == 1'b0) & (ap_predicate_op56_read_state1 == 1'b1))) & (1'b1 == ap_CS_iter0_fsm_state1));
+    ap_condition_426 = (~(((1'b1 == ap_CS_iter2_fsm_state3) & ((1'b1 == ap_block_state3_io) | (data_num_1_ack_in == 1'b0) | (regslice_both_os_V_data_V_U_apdone_blk == 1'b1) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op75_write_state3 == 1'b1)) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op73_write_state3 == 1'b1)))) | ((1'b1 == ap_CS_iter1_fsm_state2) & ((1'b1 == ap_block_state2_io) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op70_write_state2 == 1'b1)) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op69_write_state2 == 1'b1)))) | ((is_r_TVALID_int_regslice == 1'b0) & (ap_predicate_op56_read_state1 == 1'b1))) & (1'b1 == ap_CS_iter0_fsm_state1));
 end
 
 always @ (*) begin
-    ap_condition_427 = (~(((1'b1 == ap_CS_iter2_fsm_state3) & ((data_num_1_ack_in == 1'b0) | (regslice_both_os_V_data_V_U_apdone_blk == 1'b1) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op73_write_state3 == 1'b1)) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op71_write_state3 == 1'b1)))) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op68_write_state2 == 1'b1)) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op67_write_state2 == 1'b1))) & (1'b1 == ap_CS_iter1_fsm_state2));
+    ap_condition_446 = (~(((1'b1 == ap_CS_iter2_fsm_state3) & ((data_num_1_ack_in == 1'b0) | (regslice_both_os_V_data_V_U_apdone_blk == 1'b1) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op75_write_state3 == 1'b1)) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op73_write_state3 == 1'b1)))) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op70_write_state2 == 1'b1)) | ((os_TREADY_int_regslice == 1'b0) & (ap_predicate_op69_write_state2 == 1'b1))) & (1'b1 == ap_CS_iter1_fsm_state2));
 end
 
 assign ap_local_block = 1'b0;
@@ -718,19 +752,19 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    ap_predicate_op67_write_state2 = ((p_start_V_load_reg_319 == 1'd1) & (icmp_ln1064_reg_336 == 1'd1) & (tmp_reg_332 == 1'd0));
+    ap_predicate_op69_write_state2 = ((p_start_V_load_reg_327 == 1'd1) & (icmp_ln1064_reg_344 == 1'd1) & (tmp_reg_340 == 1'd0));
 end
 
 always @ (*) begin
-    ap_predicate_op68_write_state2 = ((p_start_V_load_reg_319 == 1'd1) & (tmp_reg_332 == 1'd1));
+    ap_predicate_op70_write_state2 = ((p_start_V_load_reg_327 == 1'd1) & (tmp_reg_340 == 1'd1));
 end
 
 always @ (*) begin
-    ap_predicate_op71_write_state3 = ((icmp_ln1064_reg_336_pp0_iter1_reg == 1'd1) & (tmp_reg_332_pp0_iter1_reg == 1'd0) & (p_start_V_load_reg_319_pp0_iter1_reg == 1'd1));
+    ap_predicate_op73_write_state3 = ((icmp_ln1064_reg_344_pp0_iter1_reg == 1'd1) & (tmp_reg_340_pp0_iter1_reg == 1'd0) & (p_start_V_load_reg_327_pp0_iter1_reg == 1'd1));
 end
 
 always @ (*) begin
-    ap_predicate_op73_write_state3 = ((tmp_reg_332_pp0_iter1_reg == 1'd1) & (p_start_V_load_reg_319_pp0_iter1_reg == 1'd1));
+    ap_predicate_op75_write_state3 = ((tmp_reg_340_pp0_iter1_reg == 1'd1) & (p_start_V_load_reg_327_pp0_iter1_reg == 1'd1));
 end
 
 always @ (*) begin
@@ -741,7 +775,7 @@ assign data_num = data_num_1_data_reg;
 
 assign icmp_ln1064_fu_267_p2 = ((add_ln229_1_fu_255_p2 == 16'd100) ? 1'b1 : 1'b0);
 
-assign in_last_V_fu_301_p2 = ((add_ln229_fu_283_p2 == p_size_V) ? 1'b1 : 1'b0);
+assign in_last_V_fu_309_p2 = ((add_ln229_fu_291_p2 == p_size_V) ? 1'b1 : 1'b0);
 
 assign is_r_TREADY = regslice_both_is_r_V_data_V_U_ack_in;
 
@@ -751,12 +785,12 @@ assign os_TVALID = regslice_both_os_V_data_V_U_vld_out;
 
 assign p_start_V_load_load_fu_193_p1 = p_start_V;
 
-assign p_start_V_load_reg_319_pp0_iter0_reg = p_start_V_load_reg_319;
+assign p_start_V_load_reg_327_pp0_iter0_reg = p_start_V_load_reg_327;
 
 assign tmp_nbreadreq_fu_114_p6 = is_r_TVALID_int_regslice;
 
 assign xor_ln35_fu_213_p2 = (en ^ 1'd1);
 
-assign xor_ln946_fu_307_p2 = (in_last_V_fu_301_p2 ^ 1'd1);
+assign xor_ln946_fu_315_p2 = (in_last_V_fu_309_p2 ^ 1'd1);
 
 endmodule //dma_grabber_dma_grabber
