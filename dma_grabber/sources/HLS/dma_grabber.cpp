@@ -1,8 +1,8 @@
 #include "dma_grabber.h"
 
 void dma_grabber(
-    hls::stream<ap_axiu<32, 0, 0, 0>>& is,
-    hls::stream<ap_axiu<32, 0, 0, 0>>& os,
+    hls::stream<ap_axiu<DATA_WIDTH, 0, 0, 0>>& is,
+    hls::stream<ap_axiu<DATA_WIDTH, 0, 0, 0>>& os,
     ap_uint<16>& data_num,
     const ap_uint<1>& en,
     const ap_uint<16>& size
@@ -28,7 +28,7 @@ void dma_grabber(
 #pragma hls reset variable = _cnt
 #pragma hls reset variable = _wait_time
 
-    ap_axiu<32, 0, 0, 0> in;
+    ap_axiu<DATA_WIDTH, 0, 0, 0> in;
 
     if(!_start)
     {
@@ -58,8 +58,8 @@ void dma_grabber(
             if(_wait_time == 100)
             {
                 in.last = 1;
-                in.keep = ap_uint<4>(0xF)(3,0);
-                in.strb = ap_uint<4>(0xF)(3,0);
+                in.keep = ap_uint<DATA_WIDTH/8>((1<<(DATA_WIDTH/8)) - 1)((DATA_WIDTH/8)-1,0);
+                in.strb = ap_uint<DATA_WIDTH/8>((1<<(DATA_WIDTH/8)) - 1)((DATA_WIDTH/8)-1,0);
                 os << in;
                 _start = 0;
             }
