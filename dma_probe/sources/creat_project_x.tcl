@@ -22,8 +22,6 @@ file mkdir ./outputs
 create_project -part $chip_type -force $project_name    
 # 添加RTL设计文件至sources_1文件集
 add_files -fileset sources_1 -norecurse -scan_for_includes ../sources/RTL
-# 添加测试文件至sim_1文件集
-add_files -fileset sim_1 -norecurse -scan_for_includes ../sources/TB
 # 更新编译顺序(形成模块间的层次关系,找到顶层模块)
 update_compile_order -fileset sources_1
 update_compile_order -fileset sim_1
@@ -35,47 +33,65 @@ file delete -force ./schematic.pdf
 
 # 将当前设计导出为IP(可在46行处添加IP核的相关描述)
 if {$ip_out_p=="1"} { 
-file delete -force ../my_ip/$project_name
-file mkdir ../my_ip/$project_name
-file mkdir ../my_ip/$project_name/misc
-file copy ../sources/LOGO/logo.png ../my_ip/$project_name/misc/logo.png
+file delete -force ../../my_ip/$project_name
+file mkdir ../../my_ip/$project_name
+file mkdir ../../my_ip/$project_name/misc
+file copy ../sources/LOGO/logo.png ../../my_ip/$project_name/misc/logo.png
 
-ipx::package_project -root_dir ../my_ip/$project_name -vendor xilinx.com -library user -taxonomy /UserIP -import_files -set_current false
-ipx::unload_core ../my_ip/$project_name/component.xml
-ipx::edit_ip_in_project -upgrade true -name tmp_edit_project -directory ../my_ip/$project_name ../my_ip/$project_name/component.xml
+ipx::package_project -root_dir ../../my_ip/$project_name -vendor xilinx.com -library user -taxonomy /UserIP -import_files -set_current false
+ipx::unload_core ../../my_ip/$project_name/component.xml
+ipx::edit_ip_in_project -upgrade true -name tmp_edit_project -directory ../../my_ip/$project_name ../../my_ip/$project_name/component.xml
 
 set_property name $project_name [ipx::current_core]
 set_property version $ip_verion [ipx::current_core]
 set_property display_name $project_name [ipx::current_core]
 set_property description {wyxee2000@163.com} [ipx::current_core]
 
-ipgui::move_param -component [ipx::current_core] -order 0 [ipgui::get_guiparamspec -name "system_clk" -component [ipx::current_core]] -parent [ipgui::get_pagespec -name "Page 0" -component [ipx::current_core]]
-ipgui::move_param -component [ipx::current_core] -order 1 [ipgui::get_guiparamspec -name "band_rate" -component [ipx::current_core]] -parent [ipgui::get_pagespec -name "Page 0" -component [ipx::current_core]]
-ipgui::move_param -component [ipx::current_core] -order 2 [ipgui::get_guiparamspec -name "data_bits" -component [ipx::current_core]] -parent [ipgui::get_pagespec -name "Page 0" -component [ipx::current_core]]
-ipgui::move_param -component [ipx::current_core] -order 3 [ipgui::get_guiparamspec -name "check_mode" -component [ipx::current_core]] -parent [ipgui::get_pagespec -name "Page 0" -component [ipx::current_core]]
-ipgui::move_param -component [ipx::current_core] -order 4 [ipgui::get_guiparamspec -name "stop_mode" -component [ipx::current_core]] -parent [ipgui::get_pagespec -name "Page 0" -component [ipx::current_core]]
-ipgui::move_param -component [ipx::current_core] -order 5 [ipgui::get_guiparamspec -name "tx_fifo_deepth" -component [ipx::current_core]] -parent [ipgui::get_pagespec -name "Page 0" -component [ipx::current_core]]
-ipgui::move_param -component [ipx::current_core] -order 6 [ipgui::get_guiparamspec -name "rx_fifo_deepth" -component [ipx::current_core]] -parent [ipgui::get_pagespec -name "Page 0" -component [ipx::current_core]]
-set_property widget {textEdit} [ipgui::get_guiparamspec -name "system_clk" -component [ipx::current_core] ]
-set_property tooltip {unit:Hz} [ipgui::get_guiparamspec -name "system_clk" -component [ipx::current_core] ]
-set_property widget {textEdit} [ipgui::get_guiparamspec -name "band_rate" -component [ipx::current_core] ]
-set_property tooltip {unit:bps} [ipgui::get_guiparamspec -name "band_rate" -component [ipx::current_core] ]
-set_property widget {textEdit} [ipgui::get_guiparamspec -name "check_mode" -component [ipx::current_core] ]
-set_property tooltip {0:None, 1:Even, 2:Odd, 3:Space, 4:Mark} [ipgui::get_guiparamspec -name "check_mode" -component [ipx::current_core] ]
-set_property widget {textEdit} [ipgui::get_guiparamspec -name "stop_mode" -component [ipx::current_core] ]
-set_property tooltip {0: 1bit, 1: 1.5bits, 2: 2bits} [ipgui::get_guiparamspec -name "stop_mode" -component [ipx::current_core] ]
-set_property widget {textEdit} [ipgui::get_guiparamspec -name "tx_fifo_deepth" -component [ipx::current_core] ]
-set_property tooltip {must be 0 or 2^n} [ipgui::get_guiparamspec -name "tx_fifo_deepth" -component [ipx::current_core] ]
-set_property widget {textEdit} [ipgui::get_guiparamspec -name "rx_fifo_deepth" -component [ipx::current_core] ]
-set_property tooltip {must be 0 or 2^n} [ipgui::get_guiparamspec -name "rx_fifo_deepth" -component [ipx::current_core] ]
-set_property widget {comboBox} [ipgui::get_guiparamspec -name "data_bits" -component [ipx::current_core] ]
-set_property value_validation_list {5 6 7 8} [ipx::get_user_parameters data_bits -of_objects [ipx::current_core]]
-set_property widget {comboBox} [ipgui::get_guiparamspec -name "check_mode" -component [ipx::current_core] ]
-set_property value_validation_list {0 1 2 3 4} [ipx::get_user_parameters check_mode -of_objects [ipx::current_core]]
-set_property widget {comboBox} [ipgui::get_guiparamspec -name "stop_mode" -component [ipx::current_core] ]
-set_property value_validation_list {0 1 2} [ipx::get_user_parameters stop_mode -of_objects [ipx::current_core]]
+ipgui::move_param -component [ipx::current_core] -order 0 [ipgui::get_guiparamspec -name "width" -component [ipx::current_core]] -parent [ipgui::get_pagespec -name "Page 0" -component [ipx::current_core]]
+ipgui::move_param -component [ipx::current_core] -order 1 [ipgui::get_guiparamspec -name "num" -component [ipx::current_core]] -parent [ipgui::get_pagespec -name "Page 0" -component [ipx::current_core]]
+ipgui::move_param -component [ipx::current_core] -order 2 [ipgui::get_guiparamspec -name "timeout" -component [ipx::current_core]] -parent [ipgui::get_pagespec -name "Page 0" -component [ipx::current_core]]
 
-cd ../my_ip/$project_name
+set_property widget {textEdit} [ipgui::get_guiparamspec -name "width" -component [ipx::current_core] ]
+set_property tooltip {The maximum bit width of input channels.} [ipgui::get_guiparamspec -name "width" -component [ipx::current_core] ]
+set_property widget {textEdit} [ipgui::get_guiparamspec -name "num" -component [ipx::current_core] ]
+set_property tooltip {The number of input channels.} [ipgui::get_guiparamspec -name "num" -component [ipx::current_core] ]
+set_property widget {textEdit} [ipgui::get_guiparamspec -name "timeout" -component [ipx::current_core] ]
+set_property tooltip {unit:clock period} [ipgui::get_guiparamspec -name "timeout" -component [ipx::current_core] ]
+set_property widget {comboBox} [ipgui::get_guiparamspec -name "width" -component [ipx::current_core] ]
+set_property value_validation_list {8 16 32 64 128 256 512 1024} [ipx::get_user_parameters width -of_objects [ipx::current_core]]
+set_property widget {comboBox} [ipgui::get_guiparamspec -name "num" -component [ipx::current_core] ]
+set_property value_validation_list {1 2 3 4 5 6 7 8} [ipx::get_user_parameters num -of_objects [ipx::current_core]]
+
+set_property enablement_dependency {spirit:decode(id('MODELPARAM_VALUE.num')) >= 2} \
+  [ipx::get_bus_interfaces s1_axis -of_objects [ipx::current_core]]
+set_property enablement_dependency {spirit:decode(id('MODELPARAM_VALUE.num')) >= 2} \
+  [ipx::get_bus_interfaces m1_axis -of_objects [ipx::current_core]]
+set_property enablement_dependency {spirit:decode(id('MODELPARAM_VALUE.num')) >= 3} \
+  [ipx::get_bus_interfaces s2_axis -of_objects [ipx::current_core]]
+set_property enablement_dependency {spirit:decode(id('MODELPARAM_VALUE.num')) >= 3} \
+  [ipx::get_bus_interfaces m2_axis -of_objects [ipx::current_core]]
+set_property enablement_dependency {spirit:decode(id('MODELPARAM_VALUE.num')) >= 4} \
+  [ipx::get_bus_interfaces s3_axis -of_objects [ipx::current_core]]
+set_property enablement_dependency {spirit:decode(id('MODELPARAM_VALUE.num')) >= 4} \
+  [ipx::get_bus_interfaces m3_axis -of_objects [ipx::current_core]]
+set_property enablement_dependency {spirit:decode(id('MODELPARAM_VALUE.num')) >= 5} \
+  [ipx::get_bus_interfaces s4_axis -of_objects [ipx::current_core]]
+set_property enablement_dependency {spirit:decode(id('MODELPARAM_VALUE.num')) >= 5} \
+  [ipx::get_bus_interfaces m4_axis -of_objects [ipx::current_core]]
+set_property enablement_dependency {spirit:decode(id('MODELPARAM_VALUE.num')) >= 6} \
+  [ipx::get_bus_interfaces s5_axis -of_objects [ipx::current_core]]
+set_property enablement_dependency {spirit:decode(id('MODELPARAM_VALUE.num')) >= 6} \
+  [ipx::get_bus_interfaces m5_axis -of_objects [ipx::current_core]]
+set_property enablement_dependency {spirit:decode(id('MODELPARAM_VALUE.num')) >= 7} \
+  [ipx::get_bus_interfaces s6_axis -of_objects [ipx::current_core]]
+set_property enablement_dependency {spirit:decode(id('MODELPARAM_VALUE.num')) >= 7} \
+  [ipx::get_bus_interfaces m6_axis -of_objects [ipx::current_core]]
+set_property enablement_dependency {spirit:decode(id('MODELPARAM_VALUE.num')) >= 8} \
+  [ipx::get_bus_interfaces s7_axis -of_objects [ipx::current_core]]
+set_property enablement_dependency {spirit:decode(id('MODELPARAM_VALUE.num')) >= 8} \
+  [ipx::get_bus_interfaces m7_axis -of_objects [ipx::current_core]]
+
+cd ../../my_ip/$project_name
 ipx::add_file_group -type misc {} [ipx::current_core]
 ipx::add_file ./misc/logo.png [ipx::get_file_groups xilinx_miscfiles -of_objects [ipx::current_core]]
 set_property type image [ipx::get_files misc/logo.png -of_objects [ipx::get_file_groups xilinx_miscfiles -of_objects [ipx::current_core]]]
@@ -83,8 +99,7 @@ ipx::add_file_group -type utility {} [ipx::current_core]
 ipx::add_file ./misc/logo.png [ipx::get_file_groups xilinx_utilityxitfiles -of_objects [ipx::current_core]]
 set_property type image [ipx::get_files misc/logo.png -of_objects [ipx::get_file_groups xilinx_utilityxitfiles -of_objects [ipx::current_core]]]
 set_property type LOGO [ipx::get_files misc/logo.png -of_objects [ipx::get_file_groups xilinx_utilityxitfiles -of_objects [ipx::current_core]]]
-cd ..
-cd ../project
+cd ../../$project_name/project
 
 ipx::update_source_project_archive -component [ipx::current_core]
 ipx::create_xgui_files [ipx::current_core]
